@@ -1,3 +1,6 @@
+# metals
+.metals
+
 # These are generated when we run the build
 /emulator/
 /examples/target/
