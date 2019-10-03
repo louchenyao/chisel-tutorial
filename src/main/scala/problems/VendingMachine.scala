@@ -23,7 +23,29 @@ class VendingMachine extends Module {
 
   // Implement below ----------
 
-  state := s5
+  when (state === sIdle & io.nickel) {
+    state := s5
+  }.elsewhen (state === s5 & io.nickel) {
+    state := s10
+  }.elsewhen (state === s10 & io.nickel) {
+    state := s15
+  }.elsewhen (state === s15 & io.nickel) {
+    state := sOk
+  }
+
+  when (state === sIdle & io.dime) {
+    state := s10
+  }.elsewhen (state === s5 & io.dime) {
+    state := s15
+  }.elsewhen (state === s10 & io.dime) {
+    state := sOk
+  }.elsewhen (state === s15 & io.dime) {
+    state := sOk
+  }
+
+  when (state === sOk) {
+    state := sIdle
+  }
 
   // Implement above ----------
 

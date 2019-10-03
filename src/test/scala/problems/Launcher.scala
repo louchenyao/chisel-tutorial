@@ -96,6 +96,11 @@ object Launcher {
       Driver.execute(() => new VendingMachineSwitch(), manager) {
         (c) => new VendingMachineSwitchTests(c)
       }
+    },
+    "crc32" -> { (manager: TesterOptionsManager) =>
+      Driver.execute(() => new CRC32(), manager) {
+        (c) => new CRC32Test(c)
+      }
     }
 
   )

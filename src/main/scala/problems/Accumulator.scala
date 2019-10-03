@@ -16,7 +16,9 @@ class Accumulator extends Module {
 
   // Implement below ----------
 
-  io.out := 0.U
+  val sum = RegInit(0.U(8.W))
+  sum := sum + io.in
+  io.out := sum
 
   // Implement above ----------
 }

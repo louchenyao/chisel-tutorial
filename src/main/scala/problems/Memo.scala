@@ -24,6 +24,14 @@ class Memo extends Module {
 
   // Implement below ----------
 
+  when (io.wen) {
+    mem(io.wrAddr) := io.wrData
+  }
+
+  when (io.ren) {
+    io.rdData := mem(io.rdAddr)
+  }
+
   // Implement above ----------
 
 }

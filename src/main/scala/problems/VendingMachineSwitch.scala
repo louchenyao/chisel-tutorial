@@ -27,7 +27,20 @@ class VendingMachineSwitch extends Module {
       when (io.dime) { state := s10 }
     }
     // Implement below ----------
-
+    is (s5) {
+      when (io.nickel) { state := s10 }
+      when (io.dime) { state := s15 }
+    }
+    is (s10) {
+      when (io.nickel) { state := s15 }
+      when (io.dime) { state := sOk }
+    }
+    is (s15) {
+      state := sOk
+    }
+    is (sOk) {
+      state := sIdle
+    }
     // Implement above ----------
   }
   io.valid := (state === sOk)
